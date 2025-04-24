@@ -17,11 +17,25 @@ function Input_box() {
     </h2>
   );
 
+  const deleteHandler = (i) => {
+    let copyContent = [...content];
+    copyContent.splice(i, 1);
+    setcontent(copyContent); // Log the content array to see the added input
+  };
+
   if (content.length > 0) {
     renderContent = content.map((t, i) => (
-      <li>
-        <div className="row bg-white xl:min-h-16 min-h-10 flex items-center justify-between shadow-xl xl:m-6 m-3 rounded-xl xl:rounded-2xl p-1 xl:px-2 text-wrap ">
+      <li key={i}>
+        <div className="row bg-white xl:min-h-16 min-h-10 flex items-center justify-between shadow-xl xl:m-6 m-3 rounded-xl xl:rounded-2xl p-1 xl:px-2 text-wrap  break-words whitespace-pre-wrap ">
           {t.input}
+          <button
+            onClick={() => {
+              deleteHandler(i);
+            }}
+            className="hidden bg-slate-100 md:flex items-center md:px-8 ml-4 rounded-3xl text-sm my-4 shadow-xl text-violet-800 font-sans font-medium hover:bg-pink-50"
+          >
+            Delete
+          </button>
         </div>
       </li>
     ));
