@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React from "react";
 import Navbar from "./Navbar/Navbar";
 import Dashboard from "./Navbar/Dashboard/Dashboard";
-import Body from "./main cointainer/Body";  
+import Input_box from "./main cointainer/Input_box";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -10,7 +10,7 @@ function App() {
     <>
       <Navbar />
       <Dashboard />
-      <Body />
+      <Input_box />
     </>
   );
 }
